@@ -11,3 +11,4 @@
 ## commit in branch-02 No.3
 ## commit in branch-02 No.4
 ## commit in branch-02 No.5
+## commit in branch-02 No.6
