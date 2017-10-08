@@ -11,16 +11,16 @@ phases:
   pre_build:
     commands:
       - echo "[$BUILDSPEC] PREBUILD START at $(date)"
-      - mkdir -p tmp/artifacts
+      - mkdir -p /tmp/artifacts
 
   build:
     commands:
-      - pwd > tmp/artifacts/out.txt
+      - pwd > /tmp/artifacts/out.txt
       - cd .. && pwd
-      - pwd >> tmp/artifacts/out.txt
-      - echo $KEY >> tmp/artifacts/out.txt
+      - pwd >> /tmp/artifacts/out.txt
+      - echo $KEY >> /tmp/artifacts/out.txt
       - KEY=CHANGE
-      - echo $KEY >> tmp/artifacts/out.txt
+      - echo $KEY >> /tmp/artifacts/out.txt
   post_build:
     commands:
       - echo "[$BUILDSPEC] POSTBUILD START at $(date)"
@@ -28,4 +28,4 @@ artifacts:
   files:
     - out.txt
   discard-paths: yes
-  base-directory: tmp/artifacts
+  base-directory: /tmp/artifacts
