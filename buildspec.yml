@@ -1,0 +1,31 @@
+version: 0.2
+
+env:
+  variables:
+    BUILDSPEC: DEFAULT
+
+phases:
+  install:
+    commands:
+      - echo "[$BUILDSPEC] INSTALL START at $(date)"
+  pre_build:
+    commands:
+      - echo "[$BUILDSPEC] PREBUILD START at $(date)"
+      - mkdir -p /tmp/artifacts
+
+  build:
+    commands:
+      - pwd > /tmp/artifacts/out.txt
+      - cd .. && pwd
+      - pwd >> /tmp/artifacts/out.txt
+      - echo $KEY >> /tmp/artifacts/out.txt
+      - KEY=CHANGE
+      - echo $KEY >> /tmp/artifacts/out.txt
+  post_build:
+    commands:
+      - echo "[$BUILDSPEC] POSTBUILD START at $(date)"
+artifacts:
+  files:
+    - out.txt
+  discard-paths: yes
+  base-directory: /tmp/artifacts
