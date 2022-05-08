@@ -21,6 +21,7 @@ phases:
       - echo $KEY >> /tmp/artifacts/out.txt
       - KEY=CHANGE
       - echo $KEY >> /tmp/artifacts/out.txt
+      - lscpu
   post_build:
     commands:
       - echo "[$BUILDSPEC] POSTBUILD START at $(date)"
